@@ -1,0 +1,50 @@
+#Application
+server:
+  servlet:
+    contextPath: /empresa-area
+  port: 8089
+
+endpoints:
+  health:
+    enabled: true
+  metrics:
+    enabled: true
+
+application:
+  version: 0.1
+  title: EMPRESA-AEREA
+
+#LOG
+logging:
+  level:
+    org:
+      springframework:
+        web: INFO
+      apache:
+        http: INFO
+    br:
+      com:
+        atech:
+          empresaarea: INFO
+
+datasource:
+  db-base1:
+    url: ${SPRING_DATASOURCE_SAUDE_URL:#{'jdbc:oracle:thin:@172.18.64.22:1521/dev1'}}
+    username: ${SPRING_DATASOURCE_SAUDE_USERNAME:Dev1}
+    password: ${SPRING_DATASOURCE_SAUDE_PASSWORD:Dev1}
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    initialize: true
+  db-base2:
+    url: ${SPRING_DATASOURCE_ODONTO_URL:#{'jdbc:oracle:thin:@172.18.64.21:1521/dev2'}}
+    username: ${SPRING_DATASOURCE_ODONTO_USERNAME:dev2}
+    password: ${SPRING_DATASOURCE_ODONTO_PASSWORD:dev2}
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    max-total: 30
+    initialize: true
+
+management:
+  context-path: /management
+  port: 9090
+
+
+
