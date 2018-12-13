@@ -46,6 +46,7 @@ dependencies {
 	runtimeOnly('org.springframework.boot:spring-boot-devtools')
 	testImplementation('org.springframework.boot:spring-boot-starter-test')
 	compileOnly 'org.projectlombok:lombok:1.18.2'
+	compile("joda-time:joda-time")
 
 	compile("io.springfox:springfox-swagger2:${swaggerVersion}")
 	compile("io.springfox:springfox-swagger-ui:${swaggerVersion}")
@@ -62,5 +63,6 @@ dependencies {
 	compile("org.perf4j:perf4j:$per4jVersion")
 	compile("io.springfox:springfox-data-rest:${swaggerVersion}")
 
+	runtime('org.postgresql:postgresql')
 
 }

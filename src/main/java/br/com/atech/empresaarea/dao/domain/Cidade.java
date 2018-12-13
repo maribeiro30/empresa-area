@@ -3,6 +3,7 @@ package br.com.atech.empresaarea.dao.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "CIDADE")
@@ -52,6 +53,10 @@ public class Cidade {
     public void setUf(String uf) {
         this.uf = uf;
     }
+
+    @OneToMany(mappedBy = "cidade", fetch = FetchType.LAZY)
+    private List<Voo> voos;
+
 
     @Override
     public String toString() {

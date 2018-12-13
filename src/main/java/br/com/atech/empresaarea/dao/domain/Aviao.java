@@ -3,6 +3,7 @@ package br.com.atech.empresaarea.dao.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -24,6 +25,10 @@ public class Aviao {
     private String codigo;
     @Column(name="DESCRICAO")
     private String descricao;
+
+    @OneToMany(mappedBy = "aviao", fetch = FetchType.LAZY)
+    private List<Voo> voos;
+
 
 
 }

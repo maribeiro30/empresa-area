@@ -4,6 +4,7 @@ package br.com.atech.empresaarea.dao.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "PILOTO")
@@ -18,6 +19,9 @@ public class Piloto {
     private String codigo;
     @Column(name="NOME")
     private String nome;
+
+    @OneToMany(mappedBy = "piloto", fetch = FetchType.LAZY)
+    private List<Voo> voos;
 
     public Long getId() {
         return id;
@@ -42,6 +46,7 @@ public class Piloto {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
 
     @Override
     public String toString() {

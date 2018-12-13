@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class VooDaoImpl extends CoreDao<Voo,Long, VooRepository> implements VooDao {
+
+
 }

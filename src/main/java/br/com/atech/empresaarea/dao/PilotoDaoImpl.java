@@ -5,5 +5,8 @@ import br.com.atech.empresaarea.dao.repository.PilotoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class PilotoDaoImpl extends CoreDao<Piloto,Long, PilotoRepository > implements VooDao {
+public class PilotoDaoImpl extends CoreDao<Piloto,Long, PilotoRepository > implements PilotoDao {
+
+
+
 }

@@ -27,20 +27,17 @@ logging:
         atech:
           empresaarea: INFO
 
-datasource:
-  db-base1:
-    url: ${SPRING_DATASOURCE_SAUDE_URL:#{'jdbc:oracle:thin:@172.18.64.22:1521/dev1'}}
-    username: ${SPRING_DATASOURCE_SAUDE_USERNAME:Dev1}
-    password: ${SPRING_DATASOURCE_SAUDE_PASSWORD:Dev1}
-    driver-class-name: oracle.jdbc.driver.OracleDriver
-    initialize: true
-  db-base2:
-    url: ${SPRING_DATASOURCE_ODONTO_URL:#{'jdbc:oracle:thin:@172.18.64.21:1521/dev2'}}
-    username: ${SPRING_DATASOURCE_ODONTO_USERNAME:dev2}
-    password: ${SPRING_DATASOURCE_ODONTO_PASSWORD:dev2}
-    driver-class-name: oracle.jdbc.driver.OracleDriver
-    max-total: 30
-    initialize: true
+#DataBase
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:#{'jdbc:postgresql://localhost:1521/aerea'}}
+    username: ${SPRING_DATASOURCE_USERNAME:admin}
+    password: ${SPRING_DATASOURCE_PASSWORD:masterkey}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+
 
 management:
   context-path: /management
