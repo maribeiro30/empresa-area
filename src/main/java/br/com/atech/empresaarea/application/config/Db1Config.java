@@ -18,28 +18,28 @@ import static java.util.Collections.singletonMap;
 
 @Configuration
 @EnableJpaRepositories(
-        entityManagerFactoryRef = "odontoEntityManagerFactory",
-        transactionManagerRef = "odontoTransactionManager",
-        basePackages = "br.com.sf.apireaddata.dao.odonto.repository"
+        entityManagerFactoryRef = "db1EntityManagerFactory",
+        transactionManagerRef = "db1TransactionManager",
+        basePackages = "br.com.sf.apireaddata.dao.db1.repository"
 )
 @EnableTransactionManagement
 public class Db1Config {
 
-    @Bean(name = "odontoEntityManagerFactory")
-    public LocalContainerEntityManagerFactoryBean odontoEntityManagerFactory(final EntityManagerFactoryBuilder builder,
-                                                                             final @Qualifier("odonto-db") DataSource dataSource) {
+    @Bean(name = "db1EntityManagerFactory")
+    public LocalContainerEntityManagerFactoryBean db1EntityManagerFactory(final EntityManagerFactoryBuilder builder,
+                                                                             final @Qualifier("db1-db") DataSource dataSource) {
         return builder
                 .dataSource(dataSource)
-                .packages("br.com.sf.apireaddata.dao.odonto.domain")
-                .persistenceUnit("odontoDb")
+                .packages("br.com.sf.apireaddata.dao.db1.domain")
+                .persistenceUnit("db1Db")
                 .properties(singletonMap("hibernate.dialect","org.hibernate.dialect.Oracle10gDialect"))
                 .properties(singletonMap("show-sql", "true"))
                 .build();
     }
 
-    @Bean(name = "odontoTransactionManager")
-    public PlatformTransactionManager odontoTransactionManager(@Qualifier("odontoEntityManagerFactory")
-                                                                       EntityManagerFactory odontoEntityManagerFactory) {
-        return new JpaTransactionManager(odontoEntityManagerFactory);
+    @Bean(name = "db1TransactionManager")
+    public PlatformTransactionManager db1TransactionManager(@Qualifier("db1EntityManagerFactory")
+                                                                       EntityManagerFactory db1EntityManagerFactory) {
+        return new JpaTransactionManager(db1EntityManagerFactory);
     }
 }

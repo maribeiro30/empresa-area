@@ -1,12 +1,13 @@
 package br.com.atech.empresaarea.dao.domain;
 
+
 import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "CIDADE")
-public class Cidade {
+@Table(name = "PILOTO")
+public class Piloto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,9 +18,6 @@ public class Cidade {
     private String codigo;
     @Column(name="NOME")
     private String nome;
-    @Column(name="UF")
-    private String uf;
-
 
     public Long getId() {
         return id;
@@ -45,21 +43,12 @@ public class Cidade {
         this.nome = nome;
     }
 
-    public String getUf() {
-        return uf;
-    }
-
-    public void setUf(String uf) {
-        this.uf = uf;
-    }
-
     @Override
     public String toString() {
-        return "Cidade{" +
+        return "Piloto{" +
                 "id=" + id +
                 ", codigo='" + codigo + '\'' +
                 ", nome='" + nome + '\'' +
-                ", uf='" + uf + '\'' +
                 '}';
     }
 }
