@@ -1,8 +1,6 @@
 package br.com.atech.empresaarea.web.rest.controller;
 
 import br.com.atech.empresaarea.dao.TransferDto;
-import br.com.atech.empresaarea.dao.VooDao;
-import br.com.atech.empresaarea.dao.domain.Voo;
 import br.com.atech.empresaarea.dto.PainelVooDto;
 import br.com.atech.empresaarea.service.VooService;
 import io.swagger.annotations.Api;
@@ -19,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.async.DeferredResult;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping(value = "/voo")

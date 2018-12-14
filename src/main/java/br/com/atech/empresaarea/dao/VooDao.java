@@ -11,4 +11,8 @@ public interface VooDao {
 
     Optional<List<Voo>> findAll();
 
+    Optional<Voo> saveAndFlush(Voo entity);
+
+    Optional<Voo> save(Voo entity);
+
 }
